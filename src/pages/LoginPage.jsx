@@ -2,8 +2,10 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useLogin } from '../services/mutations';
 import { setCookie } from '../utils/cookie';
+import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
+  const navigate=useNavigate();
   const {mutate}=useLogin();
     const {
       register,
@@ -14,8 +16,9 @@ function LoginPage() {
       console.log(data);
       mutate(data,{
         onSuccess:(data)=>{
-          console.log(data?.data.token);
+          console.log(data);
           setCookie("token",data?.data.token);
+          navigate("/");
         },
         onError:(error)=>{
           console.log(error.response.data.message);
