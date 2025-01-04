@@ -1,6 +1,7 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useLogin } from '../services/mutations';
+import { setCookie } from '../utils/cookie';
 
 function LoginPage() {
   const {mutate}=useLogin();
@@ -13,7 +14,8 @@ function LoginPage() {
       console.log(data);
       mutate(data,{
         onSuccess:(data)=>{
-          console.log(data);
+          console.log(data?.data.token);
+          setCookie("token",data?.data.token);
         },
         onError:(error)=>{
           console.log(error.response.data.message);
