@@ -3,7 +3,7 @@ import TableRow from '../components/TableRow'
 import { useProductDetails } from '../services/queries'
 import OperationModal from '../components/operationModal';
 import { useDispatch, useSelector } from 'react-redux';
-import { addProductForm } from '../features/modal/modalSlice';
+import { addProductForm, editProductForm } from '../features/modal/modalSlice';
 
 function ProductsManagement() {
   const modalState=useSelector((store)=>store.modal);
@@ -16,6 +16,7 @@ function ProductsManagement() {
   const addProductHandler=()=>{
     modalDispatch(addProductForm());
   }
+
   console.log(modalState);
   return (
     <div>
@@ -45,7 +46,7 @@ function ProductsManagement() {
           ))}
         </tbody>
       </table>
-      {modalState.modalType==="ADD_FORM"? <OperationModal/>:null}
+      {modalState.modalType? <OperationModal/>:null}
     </div>
   )
 }

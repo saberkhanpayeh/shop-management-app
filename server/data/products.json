@@ -2,7 +2,7 @@
   {
     "id": "9bafa87d-754a-48c1-ba80-4589d15fc5bc",
     "name": "string",
-    "price": 100,
+    "price": "500",
     "quantity": 100
   },
   {
@@ -52,5 +52,11 @@
     "name": "phone",
     "price": "56565",
     "quantity": "656"
+  },
+  {
+    "id": "c73cf64b-efbd-46ef-9057-7edc4c3e5e50",
+    "name": "car3",
+    "price": "2323232",
+    "quantity": "2323"
   }
 ]

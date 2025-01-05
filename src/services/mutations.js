@@ -16,8 +16,16 @@ const useLogin = () => {
 };
 const useAddProduct=()=>{
   const sendData=(data)=>{
-    return api.post("/products",data);
+    return api.post("products",data);
   }
   return useMutation(sendData);
 }
-export { useRegister,useLogin,useAddProduct };
+const useEditProduct=()=>{
+  const sendData=(data)=>{
+    const {id,...productData}=data;
+    console.log(id,productData);
+    return api.put(`products/${id}`,productData);
+  }
+  return useMutation(sendData);
+}
+export { useRegister,useLogin,useAddProduct,useEditProduct };

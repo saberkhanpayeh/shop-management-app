@@ -1,22 +1,40 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useActionData, useNavigate } from 'react-router-dom';
-import { useAddProduct } from '../services/mutations';
+import { useAddProduct, useEditProduct } from '../services/mutations';
 import { useDispatch, useSelector } from 'react-redux';
 import { removeProductForm } from '../features/modal/modalSlice';
 import { useInvalidateQuery } from '../services/queries';
+import { productDestructure } from '../utils/helper';
+
 
 function OperationModal() {
     const modalState=useSelector((store)=>store.modal);
     const modalDispatch=useDispatch();
     const invalidateQuery=useInvalidateQuery();
     const {mutate:addMutate}=useAddProduct();
+    const {mutate:editMutate}=useEditProduct();
     const navigate=useNavigate();
+    console.log(modalState.product);
+    const defaultValues=modalState.modalType==="EDIT_FORM" && productDestructure(modalState);
     const {
           register,
           handleSubmit,
+          reset,
           formState: { errors },
-        } = useForm();
+        } = useForm({
+            defaultValues,
+        });
+    const refreshProductsPage=()=>{
+      modalDispatch(removeProductForm());
+      invalidateQuery(["products"]);
+      navigate("/");
+    }
+    const navigateLoginPage=(time=2000)=>{
+      setTimeout(()=>{
+        navigate("/login");
+      },time)
+    }
         const onSubmit=(data)=>{
             console.log(data);
             if(modalState.modalType==="ADD_FORM")
@@ -24,19 +42,34 @@ function OperationModal() {
                 addMutate(data,{
                     onSuccess:(data)=>{
                         console.log(data);
-                        modalDispatch(removeProductForm());
-                        invalidateQuery(["products"]);
-                        navigate("/");
-
+                        refreshProductsPage();
                     },
                     onError:(error)=>{
                         console.log(error.response.data.message);
-                        setTimeout(()=>{
-                            navigate("/login");
-                        },2000);
+                        navigateLoginPage();
                       }
                 });
             }
+            else if(modalState.modalType==="EDIT_FORM")
+            {
+              console.log(data);
+              editMutate(data,{
+                onSuccess:(data)=>{
+                  console.log(data);
+                  refreshProductsPage();
+                },
+                onError:(error)=>{
+                  console.log(error.response.data.message);
+                  navigateLoginPage();
+                }
+              })
+            }
+        }
+        const cancelHandler=()=>{
+          console.log("cancel")
+          // reset({name:"",quantity:null,price:null});
+          modalDispatch(removeProductForm());
+          navigate("/");
         }
   return (
     <div>
@@ -49,7 +82,7 @@ function OperationModal() {
       <label htmlFor="price">قیمت</label>
       <input {...register("price")} placeholder="قیمت" />
       <div>
-        <button>{modalState.cancelBtn}</button>
+        <button onClick={cancelHandler}>{modalState.cancelBtn}</button>
         <button type='submit'>{modalState.confirmBtn}</button>
       </div>
     </form>

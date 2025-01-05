@@ -5,6 +5,7 @@ const initialState = {
   formTitle: "",
   confirmBtn: "",
   cancelBtn: "",
+  product:{id:"",name:"",quantity:0,price:0},
 };
 
 const modalSlice = createSlice({
@@ -20,6 +21,7 @@ const modalSlice = createSlice({
       (state.modalType = "EDIT_FORM"), (state.formTitle = "ویرایش اطلاعات");
       state.confirmBtn = "ثبت اطلاعات جدید";
       state.cancelBtn = "لغو";
+      state.product={...action.payload};
     },
     removeProductForm: (state) => {
       state.modalType = "";
