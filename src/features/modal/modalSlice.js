@@ -23,6 +23,13 @@ const modalSlice = createSlice({
       state.cancelBtn = "لغو";
       state.product={...action.payload};
     },
+    removeProduct:(state,action)=>{
+      state.modalType="REMOVE_PRODUCT";
+      state.formTitle="!آیا از حذف این محصول مطمئن هستید؟";
+      state.confirmBtn="حذف";
+      state.cancelBtn="لغو";
+      state.product={...action.payload};
+    },
     removeProductForm: (state) => {
       state.modalType = "";
       state.formTitle = "";
@@ -33,4 +40,4 @@ const modalSlice = createSlice({
 });
 
 export default modalSlice.reducer;
-export const { addProductForm, editProductForm, removeProductForm } =modalSlice.actions;
+export const { addProductForm, editProductForm, removeProductForm,removeProduct } =modalSlice.actions;

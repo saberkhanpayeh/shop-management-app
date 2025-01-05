@@ -4,6 +4,7 @@ import { useProductDetails } from '../services/queries'
 import OperationModal from '../components/operationModal';
 import { useDispatch, useSelector } from 'react-redux';
 import { addProductForm, editProductForm } from '../features/modal/modalSlice';
+import AlertModal from '../components/AlertModal';
 
 function ProductsManagement() {
   const modalState=useSelector((store)=>store.modal);
@@ -46,7 +47,8 @@ function ProductsManagement() {
           ))}
         </tbody>
       </table>
-      {modalState.modalType? <OperationModal/>:null}
+      {modalState.modalType && modalState.modalType!=="REMOVE_PRODUCT" ? <OperationModal/>:null}
+      {modalState.modalType==="REMOVE_PRODUCT" ? <AlertModal/>:null}
     </div>
   )
 }

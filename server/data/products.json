@@ -52,11 +52,5 @@
     "name": "phone",
     "price": "56565",
     "quantity": "656"
-  },
-  {
-    "id": "c73cf64b-efbd-46ef-9057-7edc4c3e5e50",
-    "name": "car3",
-    "price": "2323232",
-    "quantity": "2323"
   }
 ]

@@ -1,7 +1,7 @@
 import React from 'react'
 import { shortenProductId } from '../utils/helper'
 import { useDispatch, useSelector } from 'react-redux'
-import { editProductForm } from '../features/modal/modalSlice';
+import { editProductForm, removeProduct } from '../features/modal/modalSlice';
 
 function TableRow({product}) {
     const modalState=useSelector((store)=>store.modal);
@@ -9,6 +9,9 @@ function TableRow({product}) {
     const editProductHandler=()=>{
         modalDispatch(editProductForm(product));
       }
+    const removeProductHandler=()=>{
+        modalDispatch(removeProduct(product));
+    }
   return (
     <tr>
         <td>{product.name}</td>
@@ -23,7 +26,7 @@ function TableRow({product}) {
                 <path d="M12.4248 3.45833C12.9831 5.45 14.5415 7.00833 16.5415 7.575" stroke="#4ADE80" strokeWidth="1.5" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                 </svg>
             </button>
-            <button>
+            <button onClick={removeProductHandler}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M17.5 4.98333C14.725 4.70833 11.9333 4.56667 9.15 4.56667C7.5 4.56667 5.85 4.65 4.2 4.81667L2.5 4.98333" stroke="#F43F5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
                 <path d="M7.08325 4.14167L7.26659 3.05001C7.39992 2.25834 7.49992 1.66667 8.90825 1.66667H11.0916C12.4999 1.66667 12.6083 2.29167 12.7333 3.05834L12.9166 4.14167" stroke="#F43F5E" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>

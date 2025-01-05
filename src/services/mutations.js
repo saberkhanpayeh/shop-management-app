@@ -28,4 +28,11 @@ const useEditProduct=()=>{
   }
   return useMutation(sendData);
 }
-export { useRegister,useLogin,useAddProduct,useEditProduct };
+const useDeleteProduct=()=>{
+  const sendData=(data)=>{
+    const {id}=data;
+    return api.delete(`products/${id}`);
+  }
+  return useMutation(sendData);
+}
+export { useRegister,useLogin,useAddProduct,useEditProduct,useDeleteProduct };

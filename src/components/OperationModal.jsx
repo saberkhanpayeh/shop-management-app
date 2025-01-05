@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { removeProductForm } from '../features/modal/modalSlice';
 import { useInvalidateQuery } from '../services/queries';
 import { productDestructure } from '../utils/helper';
+import { useNavigateLoginPage } from '../hooks/navigateHooks';
 
 
 function OperationModal() {
@@ -15,6 +16,7 @@ function OperationModal() {
     const {mutate:addMutate}=useAddProduct();
     const {mutate:editMutate}=useEditProduct();
     const navigate=useNavigate();
+    const navigateLoginPage=useNavigateLoginPage();
     console.log(modalState.product);
     const defaultValues=modalState.modalType==="EDIT_FORM" && productDestructure(modalState);
     const {
@@ -30,11 +32,11 @@ function OperationModal() {
       invalidateQuery(["products"]);
       navigate("/");
     }
-    const navigateLoginPage=(time=2000)=>{
-      setTimeout(()=>{
-        navigate("/login");
-      },time)
-    }
+    // const navigateLoginPage=(time=2000)=>{
+    //   setTimeout(()=>{
+    //     navigate("/login");
+    //   },time)
+    // }
         const onSubmit=(data)=>{
             console.log(data);
             if(modalState.modalType==="ADD_FORM")
