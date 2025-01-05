@@ -14,4 +14,10 @@ const useLogin = () => {
   };
   return useMutation(sendData);
 };
-export { useRegister,useLogin };
+const useAddProduct=()=>{
+  const sendData=(data)=>{
+    return api.post("/products",data);
+  }
+  return useMutation(sendData);
+}
+export { useRegister,useLogin,useAddProduct };

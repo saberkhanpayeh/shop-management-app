@@ -1,12 +1,22 @@
 import React, { useState } from 'react'
 import TableRow from '../components/TableRow'
 import { useProductDetails } from '../services/queries'
+import OperationModal from '../components/operationModal';
+import { useDispatch, useSelector } from 'react-redux';
+import { addProductForm } from '../features/modal/modalSlice';
 
 function ProductsManagement() {
+  const modalState=useSelector((store)=>store.modal);
+  const modalDispatch=useDispatch();
+  // const [modalType,setModalType]=useState("");
   const {data,error,isLoading,isError,isFetching}=useProductDetails();
   const products=data?.data.data;
   console.log({data,isFetching,isLoading});
-  console.log(products)
+  console.log(products);
+  const addProductHandler=()=>{
+    modalDispatch(addProductForm());
+  }
+  console.log(modalState);
   return (
     <div>
       <div>
@@ -16,7 +26,7 @@ function ProductsManagement() {
         <p>
           مدیریت کالا
         </p>
-        <button>افزودن محصول</button>
+        <button onClick={addProductHandler}>افزودن محصول</button>
       </div>
       <table>
         <thead>
@@ -35,6 +45,7 @@ function ProductsManagement() {
           ))}
         </tbody>
       </table>
+      {modalState.modalType==="ADD_FORM"? <OperationModal/>:null}
     </div>
   )
 }
