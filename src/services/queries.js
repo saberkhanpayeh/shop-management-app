@@ -10,7 +10,7 @@ const useProductDetails = (pageNumber=1,productName="") => {
       }
     });
   };
-  return useQuery(["products",pageNumber], fetchProductDetails);
+  return useQuery(["products",pageNumber,productName], fetchProductDetails);
   // const fetchProductDetails = () => {
   //   return api.get("products");
   // };
