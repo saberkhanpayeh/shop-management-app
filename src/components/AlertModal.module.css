@@ -1,0 +1,46 @@
+.container{
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -20%);
+    background-color:#fff;
+    width:30%;
+    padding: 45px 67px 34px 70px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 5;
+}
+.container img{
+    width: 96px;
+    height: 97.73px;
+    margin-bottom: 64.17px;
+}
+
+.container p{
+    font-size: 20px;
+    color: #282828;
+}
+.container div{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 25px;
+}
+.container button{
+    width: 48%;
+    background-color: #DFDFDF;
+    color: #282828CC;
+    font-size: 16px;
+    border: none;
+    border-radius: 10px;
+    font-family: Vazirmatn, sans-serif;
+    padding: 8px 0;
+}
+.container button:hover{
+    background-color: #F43F5E;
+    color: #fff;
+    cursor: pointer;
+}

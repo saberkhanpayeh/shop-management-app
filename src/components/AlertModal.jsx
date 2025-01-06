@@ -6,6 +6,7 @@ import { useNavigateLoginPage } from '../hooks/navigateHooks';
 import { useInvalidateQuery } from '../services/queries';
 import { removeProductForm } from '../features/modal/modalSlice';
 import { useNavigate } from 'react-router-dom';
+import styles from "./AlertModal.module.css";
 function AlertModal() {
     const modalState=useSelector((store)=>store.modal);
     const modalDispatch=useDispatch();
@@ -35,12 +36,12 @@ function AlertModal() {
         navigate("/");
     }
   return (
-    <div>
+    <div className={styles.container}>
         <img src={closeIcon} alt="close-icon" />
         <p>{formTitle}</p>
         <div>
-            <button onClick={cancelHandler}>{cancelBtn}</button>
             <button onClick={removeHandler}>{confirmBtn}</button>
+            <button onClick={cancelHandler}>{cancelBtn}</button>
         </div>
     </div>
   )

@@ -1,0 +1,94 @@
+.container{
+    width: 79.16%;
+    /* background-color: aqua; */
+    margin: 0 auto;
+    margin-top: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.container .tableContainer{
+    width: 100%;
+    background-color: #fff;
+    border-radius: 30px;
+    border: 1px solid #E4E4E4;
+    height: 737px;
+}
+.container .table{
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table thead{
+    background-color: #F2F2F2;
+}
+.table th{
+    font-size: 14px;
+    text-align: right;
+    padding-top: 25px;
+    padding-bottom: 23px;
+   
+}
+.table th:nth-child(1)
+{
+    border-top-right-radius: 30px;
+}
+.table th:nth-last-child(1){
+    border-top-left-radius: 30px;
+}
+.table th:nth-child(1),td:nth-child(1){
+    /* background-color: bisque; */
+    padding-right: 52px;
+    width: 15%;
+}
+.table th:nth-last-child(1),td:nth-last-child(1){
+    /* background-color: bisque; */
+    padding-left: 39px;
+    width: 10%;
+}
+
+.table td{
+    font-size: 13px;
+    text-align: right;
+    padding-top: 16px;
+    padding-bottom: 18px;
+}
+.table tbody tr{
+    border-bottom: 1px solid #F2F2F2;
+}
+
+.table tbody button{
+    background:none;
+    border: none;
+    margin-left: 14px;
+}
+
+.addProduct{
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 42px;
+}
+.addProduct div{
+    display: flex;
+    /* background-color: pink; */
+    margin-bottom: 20px;
+    align-items: center;
+}
+.addProduct div p{
+    font-size: 24px;
+    font-weight: 400;
+    color: #282828;
+}
+
+.addProduct button{
+    margin-bottom: 10px;
+    width: 132px;
+    border: none;
+    border-radius: 10px;
+    background-color:#55A3F0 ;
+    font-size: 16px;
+    color: #fff;
+    font-family: Vazirmatn, sans-serif;
+}

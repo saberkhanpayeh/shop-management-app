@@ -2,7 +2,7 @@ import React from 'react'
 import { shortenProductId } from '../utils/helper'
 import { useDispatch, useSelector } from 'react-redux'
 import { editProductForm, removeProduct } from '../features/modal/modalSlice';
-
+import styles from "./TableRow.module.css";
 function TableRow({product}) {
     const modalState=useSelector((store)=>store.modal);
     const modalDispatch=useDispatch();
@@ -17,7 +17,7 @@ function TableRow({product}) {
         <td>{product.name}</td>
         <td>{product.quantity}</td>
         <td>{product.price}</td>
-        <td>{shortenProductId(product.id)}</td>
+        <td className={styles.format}>{shortenProductId(product.id)}</td>
         <td>
             <button onClick={editProductHandler}>
                 <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -1,0 +1,86 @@
+.container{
+    background-color: #fff;
+    width: 32%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #E4E4E4;
+    border-radius: 40px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+
+}
+.container h2{
+    margin-bottom: 63px;
+    font-weight: 500;
+    font-size: 24px;
+
+}
+
+.container .image{
+    width: 80px;
+    height: 84.47px;
+    background-image: url("../assets/icons/Union.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+    text-align: center;
+    margin-top: 51px;
+    margin-bottom: 16.53px;
+}
+
+.container form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* background-color:aqua; */
+    padding-right: 25px;
+    padding-left: 35px;
+}
+.container form input{
+    width: 100%;
+    margin-bottom: 16px;
+    padding: 14px 0;
+    padding-right: 15px;
+    background-color: #F2F2F2;
+    color: rgba(40, 40, 40, 0.5);
+    font-size: 16px;
+    font-weight: 400;
+    border: none;
+    border-radius: 15px;
+    font-family: Vazirmatn, sans-serif;
+    /* line-height: 25px; */
+}
+.container form input:focus{
+outline: none;
+}
+.container form button{
+    margin-top: 19px;
+    background-color: #55A3F0;
+    width: 100%;
+    font-size: 20px;
+    font-weight: 600;
+    font-family: Vazirmatn, sans-serif;
+    color: #FFFFFF;
+    padding: 11px 0;
+    border: none;
+    border-radius: 15px;
+}
+
+.link{
+    background-image: none;
+    align-self: flex-start;
+    margin: 19px 28px 20px 0px;
+    font-size: 16px;
+    color: #3A8BED;
+}

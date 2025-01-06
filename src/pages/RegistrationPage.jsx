@@ -2,8 +2,9 @@ import { useMutation } from '@tanstack/react-query';
 import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useRegister } from '../services/mutations';
-import { useNavigate } from 'react-router-dom';
-
+import { Link, useNavigate } from 'react-router-dom';
+import styles from "./RegistrationAndLogin.module.css";
+import SiteLogo from "../assets/icons/Union.png"
 function RegistrationPage() {
   const navigate=useNavigate();
   const {mutate,isPending}=useRegister();
@@ -27,12 +28,19 @@ function RegistrationPage() {
     });
   }
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
-    <input {...register("username")} placeholder="نام کابری" />
-    <input type='password' {...register("password")} placeholder="رمز عبور" />
-    <input type='password' {...register("confirmPassword")} placeholder="تکرار رمز عبور" />
-    <button type="submit">ثبت نام</button>
-  </form>
+    <div className={styles.container}>
+      {/* <img src={SiteLogo} alt="logo"/> */}
+      <a className={styles.image}href="/registration"></a>
+      <h2>فرم ثبت نام</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <input {...register("username")} placeholder="نام کابری" />
+        <input type='password' {...register("password")} placeholder="رمز عبور" />
+        <input type='password' {...register("confirmPassword")} placeholder="تکرار رمز عبور" />
+        <button type="submit">ثبت نام</button>
+      </form>
+      <Link className={styles.link} to="/login">حساب کاربری دارید؟</Link>
+    </div>
+  
   )
 }
 
