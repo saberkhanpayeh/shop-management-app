@@ -15,10 +15,10 @@ function AlertModal() {
     const invalidateQuery=useInvalidateQuery();
     const {formTitle,confirmBtn,cancelBtn,product}=modalState;
     const removeHandler=()=>{
-        console.log("remove");
+        // console.log("remove");
         mutate(product,{
             onSuccess:(data)=>{
-                console.log(data);
+                // console.log(data);
                 modalDispatch(removeProductForm());
                 invalidateQuery(["products"]);
                 navigate("/");
@@ -31,6 +31,8 @@ function AlertModal() {
     }
     const cancelHandler=()=>{
         console.log("cancel");
+        modalDispatch(removeProductForm());
+        navigate("/");
     }
   return (
     <div>

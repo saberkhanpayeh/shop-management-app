@@ -1,10 +1,20 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 import api from "../config/api";
-const useProductDetails = () => {
+const useProductDetails = (pageNumber=1,productName="") => {
   const fetchProductDetails = () => {
-    return api.get("products");
+    console.log({pageNumber,productName});
+    return api.get("products",{
+      params:{
+        page:pageNumber,
+        name:productName,
+      }
+    });
   };
-  return useQuery(["products"], fetchProductDetails);
+  return useQuery(["products",pageNumber], fetchProductDetails);
+  // const fetchProductDetails = () => {
+  //   return api.get("products");
+  // };
+  // return useQuery(["products"], fetchProductDetails);
 };
 
 const useInvalidateQuery = () => {
@@ -20,4 +30,15 @@ const useInvalidateQuery = () => {
 
   return invalidateQuery;
 };
+const usePaginateProduct=(pageNumber=1,productName="")=>{
+  const fetchProductDetails = () => {
+    return api.get("products",{
+      params:{
+        page:pageNumber,
+        name:productName,
+      }
+    });
+  };
+  return useQuery(["products"], fetchProductDetails);
+}
 export { useProductDetails, useInvalidateQuery };

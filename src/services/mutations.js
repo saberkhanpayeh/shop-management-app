@@ -23,7 +23,7 @@ const useAddProduct=()=>{
 const useEditProduct=()=>{
   const sendData=(data)=>{
     const {id,...productData}=data;
-    console.log(id,productData);
+    // console.log(id,productData);
     return api.put(`products/${id}`,productData);
   }
   return useMutation(sendData);

@@ -13,10 +13,10 @@ function LoginPage() {
       formState: { errors },
     } = useForm();
     const onSubmit=(data)=>{
-      console.log(data);
+      // console.log(data);
       mutate(data,{
         onSuccess:(data)=>{
-          console.log(data);
+          // console.log(data);
           setCookie("token",data?.data.token);
           navigate("/");
         },

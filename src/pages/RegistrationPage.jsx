@@ -15,10 +15,10 @@ function RegistrationPage() {
   const onSubmit=(data)=>{
     if(data.password!==data.confirmPassword)
         return;
-    console.log(data);
+    // console.log(data);
     mutate(data,{
       onSuccess:(res)=>{
-        console.log(res.data.message);
+        // console.log(res.data.message);
         navigate("/login");
       },
       onError:(error)=>{

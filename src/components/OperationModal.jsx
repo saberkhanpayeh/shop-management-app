@@ -17,7 +17,7 @@ function OperationModal() {
     const {mutate:editMutate}=useEditProduct();
     const navigate=useNavigate();
     const navigateLoginPage=useNavigateLoginPage();
-    console.log(modalState.product);
+    // console.log(modalState.product);
     const defaultValues=modalState.modalType==="EDIT_FORM" && productDestructure(modalState);
     const {
           register,
@@ -28,8 +28,8 @@ function OperationModal() {
             defaultValues,
         });
     const refreshProductsPage=()=>{
-      modalDispatch(removeProductForm());
       invalidateQuery(["products"]);
+      modalDispatch(removeProductForm());
       navigate("/");
     }
     // const navigateLoginPage=(time=2000)=>{
@@ -43,7 +43,7 @@ function OperationModal() {
             {
                 addMutate(data,{
                     onSuccess:(data)=>{
-                        console.log(data);
+                        // console.log(data);
                         refreshProductsPage();
                     },
                     onError:(error)=>{
@@ -57,7 +57,7 @@ function OperationModal() {
               console.log(data);
               editMutate(data,{
                 onSuccess:(data)=>{
-                  console.log(data);
+                  // console.log(data);
                   refreshProductsPage();
                 },
                 onError:(error)=>{
@@ -68,7 +68,7 @@ function OperationModal() {
             }
         }
         const cancelHandler=()=>{
-          console.log("cancel")
+          // console.log("cancel")
           // reset({name:"",quantity:null,price:null});
           modalDispatch(removeProductForm());
           navigate("/");
