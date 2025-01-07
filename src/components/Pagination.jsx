@@ -23,17 +23,17 @@ function Pagination({itemOffset,setItemOffset,totalPages }) {
       <>
           <ReactPaginate
           breakLabel="..."
-          nextLabel="next >"
+          nextLabel={totalPages > 4 ? "بعدی" : null}
           onPageChange={handlePageClick}
           forcePage={itemOffset-1}
           pageRangeDisplayed={5}
           pageCount={totalPages}
-          previousLabel="< previous"
+          previousLabel={itemOffset > 1 ? "قبلی" : null}
           renderOnZeroPageCount={null}
           containerClassName={styles.pagination}
           pageLinkClassName={styles.pageNumber}
-          previousLinkClassName={styles.pageNumber}
-          nextLinkClassName={styles.pageNumber}
+          previousLinkClassName={itemOffset<=1?styles.disabled:styles.pageNumber}
+          nextLinkClassName={totalPages<=4?styles.disabled:styles.pageNumber}
           activeLinkClassName={styles.active}
         />
     

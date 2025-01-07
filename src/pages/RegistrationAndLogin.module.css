@@ -58,7 +58,6 @@
     font-weight: 400;
     border: none;
     border-radius: 15px;
-    font-family: Vazirmatn, sans-serif;
     /* line-height: 25px; */
 }
 .container form input:focus{
@@ -70,7 +69,6 @@ outline: none;
     width: 100%;
     font-size: 20px;
     font-weight: 600;
-    font-family: Vazirmatn, sans-serif;
     color: #FFFFFF;
     padding: 11px 0;
     border: none;
@@ -83,4 +81,88 @@ outline: none;
     margin: 19px 28px 20px 0px;
     font-size: 16px;
     color: #3A8BED;
+}
+
+@media (min-width:200px) and (max-width:480px){
+    .container{
+        width: 70% !important;
+        border-radius: 20px;
+    }
+    .container h2{
+        margin-bottom: 23px;
+        font-weight: 500;
+        font-size: 16px;
+    
+    }
+    .container .image{
+        width: 40px;
+        height: 40.47px;
+        margin-top: 21px;
+        margin-bottom: 6.53px;
+    }
+    .container form{
+        /* background-color:aqua; */
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+    .container form input{
+        margin-bottom: 10px;
+        padding: 4px 0;
+        padding-right: 5px;
+        font-size: 10px;
+        border-radius: 5px;
+    }
+    .container form button{
+        margin-top: 9px;
+        font-size: 10px;
+        padding: 5px 0;
+        border-radius:5px;
+    }
+    .link{
+        margin: 14px 40px 12px 0px;
+        font-size: 6px;
+        color: #3A8BED;
+    }
+  }
+  @media (min-width:481px)and (max-width:768px) {
+    .container{
+        width: 60% !important;
+        border-radius: 30px;
+    }
+    .container h2{
+        margin-bottom: 33px;
+        font-size: 18px;
+    }
+    
+    .container .image{
+        width: 60px;
+        height: 60.47px;
+        margin-top: 31px;
+        margin-bottom: 10.53px;
+    }
+    
+    .container form{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .container form input{
+        width: 100%;
+        margin-bottom: 16px;
+        padding: 10px 0;
+        padding-right: 10px;
+        font-size: 8px;
+        border-radius: 8px;
+        /* line-height: 25px; */
+    }
+    .container form button{
+        margin-top: 10px;
+        font-size: 12px;
+        padding: 8px 0;
+        border-radius: 8px;
+    }
+    
+    .link{
+        margin: 14px 38px 12px 0px;
+        font-size: 10px;
+    }
 }

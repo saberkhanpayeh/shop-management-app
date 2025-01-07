@@ -74,21 +74,24 @@ function OperationModal() {
           navigate("/");
         }
   return (
-    <div className={styles.container}>
-      <p>{modalState.formTitle}</p>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <label htmlFor="name">نام کالا</label>
-          <input {...register("name")} placeholder="نام کالا" />
-          <label htmlFor="quantity">تعداد موجودی</label>
-          <input {...register("quantity")} placeholder="تعداد" />
-          <label htmlFor="price">قیمت</label>
-          <input {...register("price")} placeholder="قیمت" />
-          <div>
-            <button type='submit'>{modalState.confirmBtn}</button>
-            <button onClick={cancelHandler}>{modalState.cancelBtn}</button>
-          </div>
-        </form>
+    <div className={styles.wrapper}>
+      <div className={styles.container}>
+          <p>{modalState.formTitle}</p>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <label htmlFor="name">نام کالا</label>
+              <input {...register("name")} placeholder="نام کالا" />
+              <label htmlFor="quantity">تعداد موجودی</label>
+              <input {...register("quantity")} placeholder="تعداد" />
+              <label htmlFor="price">قیمت</label>
+              <input {...register("price")} placeholder="قیمت" />
+              <div>
+                <button type='submit'>{modalState.confirmBtn}</button>
+                <button onClick={cancelHandler}>{modalState.cancelBtn}</button>
+              </div>
+            </form>
+        </div>
     </div>
+  
   )
 }
 

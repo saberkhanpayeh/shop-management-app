@@ -29,7 +29,7 @@ function LoginPage() {
     <div style={{width:"33%"}} className={styles.container}>
       <a className={styles.image}href="/login"></a>
       <h2>فرم ورود</h2>
-      <form style={{padding:"0 35px;"}}onSubmit={handleSubmit(onSubmit)}>
+      <form style={{padding:"0 35px"}}onSubmit={handleSubmit(onSubmit)}>
         <input {...register("username")} placeholder="نام کابری" />
         <input type='password' {...register("password")} placeholder="رمز عبور" />
         <button type="submit">ورود</button>

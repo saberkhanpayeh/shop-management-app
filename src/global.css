@@ -11,15 +11,17 @@
   line-height: 1.5;
   font-weight: 400;
   direction: rtl;
+
 }
 
 body {
-  margin: auto;
+  
   font-family: Vazirmatn, sans-serif;
   font-feature-settings: "ss01", "tnum";
   background-color: #F7F8F8;
   max-width: 1440px;
   height: 100vh;
+  margin: auto;
   position: relative;
 
 }

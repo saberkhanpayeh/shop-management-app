@@ -36,12 +36,14 @@ function AlertModal() {
         navigate("/");
     }
   return (
-    <div className={styles.container}>
-        <img src={closeIcon} alt="close-icon" />
-        <p>{formTitle}</p>
-        <div>
-            <button onClick={removeHandler}>{confirmBtn}</button>
-            <button onClick={cancelHandler}>{cancelBtn}</button>
+    <div className={styles.wrapper}>
+        <div className={styles.container}>
+            <img src={closeIcon} alt="close-icon" />
+            <p>{formTitle}</p>
+            <div>
+                <button onClick={removeHandler}>{confirmBtn}</button>
+                <button onClick={cancelHandler}>{cancelBtn}</button>
+            </div>
         </div>
     </div>
   )

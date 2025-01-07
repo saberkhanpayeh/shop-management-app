@@ -10,7 +10,6 @@
 .container input{
     font-size: 16px;
     color: #00000099;
-    font-family: Vazirmatn, sans-serif;
     margin-right: 12px;
     border: none;
 }
@@ -23,6 +22,49 @@
     height: 24px;
     line-height: 25px;
     border: none;
-    cursor: pointer;
-    
+}
+
+@media (min-width:200px) and (max-width:480px){
+    .container{
+        border-radius: 8px;
+        padding: 6px 6px 6px 8px;
+        /* background-color: pink; */
+    }
+    .container input{
+        font-size: 8px;
+        /* margin-right: 4px; */
+        margin-right: 0;
+    }
+    .container button{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    .container button svg{
+        width: 14px;
+        height: 14px;
+        line-height: 14px;
+    }
+  }
+  @media (min-width:481px)and (max-width:768px) {
+    .container{
+        border-radius: 10px;
+        padding: 12px 12px 12px 14px;
+        /* background-color: pink; */
+    }
+    .container input{
+        font-size: 12px;
+        /* margin-right: 4px; */
+        margin-right: 4px;
+    }
+    .container button{
+        display: flex;
+        align-items: center;
+        justify-content:center;
+    }
+    .container button svg{
+        width: 16px;
+        height: 16px;
+        line-height: 16px;
+    }
 }

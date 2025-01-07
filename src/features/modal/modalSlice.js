@@ -25,7 +25,7 @@ const modalSlice = createSlice({
     },
     removeProduct:(state,action)=>{
       state.modalType="REMOVE_PRODUCT";
-      state.formTitle="!آیا از حذف این محصول مطمئن هستید؟";
+      state.formTitle="آیا از حذف این محصول مطمئن هستید؟";
       state.confirmBtn="حذف";
       state.cancelBtn="لغو";
       state.product={...action.payload};
