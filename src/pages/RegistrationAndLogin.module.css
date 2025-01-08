@@ -63,7 +63,7 @@
 .container form input:focus{
 outline: none;
 }
-.container form button{
+.container form .submit{
     margin-top: 19px;
     background-color: #55A3F0;
     width: 100%;
@@ -74,13 +74,37 @@ outline: none;
     border: none;
     border-radius: 15px;
 }
-
+.container form span{
+    color: red;
+    font-size: 14px;
+}
 .link{
     background-image: none;
     align-self: flex-start;
     margin: 19px 28px 20px 0px;
     font-size: 16px;
     color: #3A8BED;
+}
+
+.inputEye {
+    width: 100%;
+    position: relative;
+    /* background-color: pink; */
+    
+}
+
+.inputEye button{
+    position: absolute;
+    left:3%;
+    top:29%;
+    background:none;
+    border: none;
+
+}
+.inputEye button svg{
+    width: 15px;
+    height: 15px;
+    color: rgba(40, 40, 40, 0.5);
 }
 
 @media (min-width:200px) and (max-width:480px){
@@ -112,17 +136,30 @@ outline: none;
         font-size: 10px;
         border-radius: 5px;
     }
-    .container form button{
+    .container form .submit{
         margin-top: 9px;
         font-size: 10px;
         padding: 5px 0;
         border-radius:5px;
+    }
+    .container form span{
+        font-size: 8px;
     }
     .link{
         margin: 14px 40px 12px 0px;
         font-size: 6px;
         color: #3A8BED;
     }
+        .inputEye button{
+            left:3%;
+            top:10%;
+
+        }
+        .inputEye button svg{
+            width: 8px;
+            height: 8px;
+            color: rgba(40, 40, 40, 0.5);
+        }
   }
   @media (min-width:481px)and (max-width:768px) {
     .container{
@@ -154,15 +191,27 @@ outline: none;
         border-radius: 8px;
         /* line-height: 25px; */
     }
-    .container form button{
+    .container form .submit{
         margin-top: 10px;
         font-size: 12px;
         padding: 8px 0;
         border-radius: 8px;
     }
-    
+    .container form span{
+        font-size: 8px;
+    }
     .link{
         margin: 14px 38px 12px 0px;
         font-size: 10px;
+    }
+    .inputEye button{
+        left:3%;
+        top:15%;
+    
+    }
+    .inputEye button svg{
+        width: 10px;
+        height: 10px;
+        color: rgba(40, 40, 40, 0.5);
     }
 }
