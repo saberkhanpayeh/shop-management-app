@@ -8,6 +8,8 @@ import { useInvalidateQuery } from '../services/queries';
 import { productDestructure } from '../utils/helper';
 import { useNavigateLoginPage } from '../hooks/navigateHooks';
 import styles from "./OperationModal.module.css";
+import { yupResolver } from '@hookform/resolvers/yup';
+import { productsFormSchema } from '../schema';
 
 function OperationModal() {
     const modalState=useSelector((store)=>store.modal);
@@ -26,6 +28,8 @@ function OperationModal() {
           formState: { errors },
         } = useForm({
             defaultValues,
+            resolver:yupResolver(productsFormSchema),
+            mode:"onChange"
         });
     const refreshProductsPage=()=>{
       invalidateQuery(["products"]);
@@ -80,10 +84,13 @@ function OperationModal() {
             <form onSubmit={handleSubmit(onSubmit)}>
               <label htmlFor="name">نام کالا</label>
               <input {...register("name")} placeholder="نام کالا" />
+              {errors?.name && <span>*{errors?.name.message}</span>}
               <label htmlFor="quantity">تعداد موجودی</label>
               <input {...register("quantity")} placeholder="تعداد" />
+              {errors?.quantity && <span>*{errors?.quantity.message}</span>}
               <label htmlFor="price">قیمت</label>
               <input {...register("price")} placeholder="قیمت" />
+              {errors?.price && <span>*{errors?.price.message}</span>}
               <div>
                 <button type='submit'>{modalState.confirmBtn}</button>
                 <button onClick={cancelHandler}>{modalState.cancelBtn}</button>

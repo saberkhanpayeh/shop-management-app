@@ -5,6 +5,8 @@ import { useRegister } from '../services/mutations';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from "./RegistrationAndLogin.module.css";
 import SiteLogo from "../assets/icons/Union.png"
+import { yupResolver } from '@hookform/resolvers/yup';
+import { registerFromSchema } from '../schema';
 function RegistrationPage() {
   const navigate=useNavigate();
   const {mutate,isPending}=useRegister();
@@ -12,7 +14,10 @@ function RegistrationPage() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    resolver:yupResolver(registerFromSchema),
+    mode:"onChange"
+  });
   const onSubmit=(data)=>{
     if(data.password!==data.confirmPassword)
         return;
@@ -34,8 +39,11 @@ function RegistrationPage() {
       <h2>فرم ثبت نام</h2>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input {...register("username")} placeholder="نام کابری" />
+        {errors?.username && <span>*{errors?.username.message}</span>}
         <input type='password' {...register("password")} placeholder="رمز عبور" />
+        {errors?.password && <span>*{errors?.password.message}</span>}
         <input type='password' {...register("confirmPassword")} placeholder="تکرار رمز عبور" />
+        {errors?.confirmPassword && <span>*{errors?.confirmPassword.message}</span>}
         <button type="submit">ثبت نام</button>
       </form>
       <Link className={styles.link} to="/login">حساب کاربری دارید؟</Link>
