@@ -1,13 +1,14 @@
-import React from 'react'
-import Router from './router/Router'
-import ReactQueryProvider from './provider/ReactQueryProvider'
+import React from "react";
+import Router from "./router/Router";
+import ReactQueryProvider from "./provider/ReactQueryProvider";
+
 
 function App() {
   return (
     <ReactQueryProvider>
-        <Router/>
+        <Router />
     </ReactQueryProvider>
-  )
+  );
 }
 
-export default App
+export default App;
